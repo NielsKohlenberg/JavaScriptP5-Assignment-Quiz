@@ -1,0 +1,75 @@
+@charset "UTF-8";
+body{
+  background-color: #F0DB4F;
+}
+header{
+  height: 14vh;
+  width: 100%;
+}
+header .grid-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "question title score";
+}
+header .question{
+  grid-area: question;
+}
+header .title{
+  grid-area: title;
+}
+header .title h1{
+  text-align: center;
+  padding-top: 60px;
+  color: #323330;
+}
+header .score{
+  grid-area: score;
+}
+header .information p{
+  text-align: center;
+  padding-top: 50px;
+  color: #323330;
+}
+header .information h3{
+  text-align: center;
+  margin-top: -15px;
+  color: #323330;
+}
+.question-container{
+  height: 83vh;
+  width: 100%;
+}
+.question-container .question-information{
+  height: 26vh;
+  min-height: 26vh;
+}
+.question-container .question-information p{
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 7vh;
+}
+.question-container .question-information h2{
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-top: -10px;
+  font-weight: bold;
+}
+.question-container .question-answers{
+  height: 60vh;
+}
+.question-container .question-answers button{
+  margin-left: 20%;
+  margin-right: 20%;
+  display: block;
+  margin-bottom: 30px;
+  height: 100px;
+  min-width: 50%;
+  text-align: left;
+  font-size: 1.5em;
+  background-color: transparent;
+  border: solid transparent 1px;
+}
+.question-container .question-answers button span{
+  padding-left: 40px;
+}
