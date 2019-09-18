@@ -25,3 +25,30 @@
   border: none;
   font-size: 2em;
 }
+.question-container .wrapper-users{
+  margin-top: 80px;
+}
+.question-container .user{
+  height: 50px;
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: solid 1px #2A2A2A;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "user score";
+  margin-top: 3px;
+}
+.question-container .user .name{
+  grid-area: user;
+  padding-top: 5px;
+  font-size: 1.5em;
+  padding-left: 20px;
+}
+.question-container .user .score{
+  grid-area: score;
+  padding-top: 5px;
+  font-size: 1.5em;
+  text-align: right;
+  padding-right: 20px;
+}
