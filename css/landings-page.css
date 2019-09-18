@@ -4,3 +4,24 @@
   padding-top: 60px;
   text-align: center;
 }
+.question-information{
+  text-align: center;
+}
+.question-information #name-box{
+  width: 40%;
+  margin-top: 200px;
+  height: 50px;
+  border: none;
+  border-bottom: solid 3px #2A2A2A;
+  background-color: transparent;
+  font-size: 1.5em;
+  color: #2A2A2A;
+}
+.question-information #submit-button{
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  color: #2A2A2A;
+  border: none;
+  font-size: 2em;
+}
