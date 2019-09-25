@@ -36,11 +36,18 @@ let loadQuestion = (q) => {
 
 let loadLeaderboard = () => {
   $('#content').load('leaderboard.html', function() {
-    $.get(BASE_URL + '/getresult.php?code=' + localStorage.getItem('code'), function(data) {
-      var json = JSON.parse(data);
-      $('#result_score').html(json.correct_answers * 10);
-    });
 
+    if (localStorage.getItem('last_question') !== 'done') {
+      $(document).find('.restart').html('Go back');
+      $(document).find('#result_score_text').html('');
+    }
+
+    if (localStorage.getItem('last_question') === 'done') {
+      $.get(BASE_URL + '/getresult.php?code=' + localStorage.getItem('code'), function(data) {
+        var json = JSON.parse(data);
+        $('#result_score').html(json.correct_answers * 10);
+      });
+    }
     $.get(BASE_URL + '/leaderboard.php?page=0', function(data) {
       var json = JSON.parse(data);
 
@@ -83,9 +90,9 @@ $(document).on('click', '.restart', function() {
   $('#content').load('landing.html');
 });
 
-if (localStorage.getItem('last_question')) {
+if (localStorage.getItem('last_question') || localStorage.getItem('page')) {
   setLoading(true);
-  if (localStorage.getItem('last_question') === 'done') {
+  if (localStorage.getItem('last_question') === 'done' || localStorage.getItem('page') === 'leaderboard') {
     loadLeaderboard();
   } else {
   $('#content').load('quiz.html', function() {
@@ -100,6 +107,10 @@ if (localStorage.getItem('last_question')) {
 }
 }
 
+$(document).on('click', '#show-lb', (e) => {
+  localStorage.setItem('page', 'leaderboard');
+  loadLeaderboard();
+});
 
 $(document).on('click', '#answer-1, #answer-2, #answer-3, #answer-4', (e) => {
   setLoading(true);
